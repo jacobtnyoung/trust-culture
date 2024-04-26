@@ -1,0 +1,88 @@
+TITLE:
+  PV PAR
+
+DATA:
+  FILE IS PV PAR Interviews Full_CLEANED.dat ;
+
+VARIABLE:
+  NAMES ARE
+     S3SS1_1 S3SS1_2 S3SS1_3 S3SS1_4 S3SS1_5
+     S3SS1_6 S3SS1_7 S3SS1_8 S3SS1_9 S3SS1_10
+     S3SS1_11 S3SS1_12 S3SS1_13 S3SS1_14 S3SS1_15
+     S3SS2_1 S3SS2_2 S3SS2_3 S3SS2_4 S3SS2_5 S3SS2_6 S3SS2_7
+     S3SS2_8 S3SS2_9 S3SS2_10 S3SS2_11 S3SS2_12 S3SS2_13 S3SS2_14
+     S3SS3_1 S3SS3_2 S3SS3_3 S3SS3_4 S3SS3_5 S3SS3_6 S3SS3_7 competence ;
+  MISSING ARE ALL (-9999) ;
+
+  CATEGORICAL ARE
+     S3SS1_1 S3SS1_2 S3SS1_3 S3SS1_4 S3SS1_5
+     S3SS1_6 S3SS1_7 S3SS1_8 S3SS1_9 S3SS1_10
+     S3SS1_11 S3SS1_12 S3SS1_13 S3SS1_14 S3SS1_15
+     S3SS2_1 S3SS2_2 S3SS2_3 S3SS2_4 S3SS2_5 S3SS2_6 S3SS2_7
+     S3SS2_8 S3SS2_9 S3SS2_10 S3SS2_11 S3SS2_12 S3SS2_13 S3SS2_14
+     S3SS3_1 S3SS3_2 S3SS3_3 S3SS3_4 S3SS3_5 S3SS3_6 S3SS3_7 ;
+
+ANALYSIS:
+
+
+MODEL:
+
+ ! Trust.
+ !TRUST BY S3SS1_1
+ !         S3SS1_2
+ !         S3SS1_3
+ !         S3SS1_4
+          !S3SS1_5
+ !         S3SS1_6
+ !         S3SS1_7
+ !         S3SS1_8
+ !         S3SS1_9
+ !         S3SS1_10
+ !         S3SS1_11
+ !         S3SS1_12
+ !         S3SS1_13
+          !S3SS1_14
+ !         S3SS1_15 ;
+
+ ! Other factor?
+ REL BY    S3SS2_1
+          	S3SS2_2
+          	S3SS2_3
+          	S3SS2_4
+          	S3SS2_5
+          	S3SS2_6
+          	S3SS2_7
+          	S3SS2_8
+          	S3SS2_9
+          	S3SS2_10
+          	S3SS2_11
+          	S3SS2_12
+          	S3SS2_13
+          	S3SS2_14 ;
+
+ ! other factor?
+ !SAFE BY  S3SS3_1
+ !         S3SS3_2
+ !         S3SS3_3
+ !         S3SS3_4
+ !         S3SS3_5
+ !         S3SS3_6
+ !         S3SS3_7 ;
+
+ competence ON REL ; !REL ;
+
+OUTPUT: 
+ TECH4 STDYX ;
+
+
+
+
+
+
+
+
+
+
+!!!!!!!!!!!!!!!!
+!!!END SYNTAX!!!
+!!!!!!!!!!!!!!!!
