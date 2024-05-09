@@ -2,10 +2,12 @@
 # PAPER TITLE
 # ================================================================== #
 
-# This syntax file cleans the items from the trust instrument 
-# of the PAR survey.
+!!!!BUILD OUT: this needs to show the model fit for all the models!!!
 
-# It then uses CCTpack to estimate cultural heterogeneity models.
+
+
+# This syntax file assess model fit for models estimated
+# in the trust-culture-heterogeneity-analysis.R file
 
 
 # ================================================================== #
@@ -14,106 +16,60 @@
 # Clear the workspace
 rm( list = ls() )
 
-# For the RC, you need to 
-# add jags-4.3.0-gcc-12.1.0 to the "additional modules" argument
-
 # Load the libraries used
-library( parallel ) # for parallel processing
 library( CCTpack )  # for the cultural consensus models
-library( haven )    # for the stata file import  
 library( here )     # for calling local directory
 library( dplyr )    # for working with the data
+library( reshape2 ) # for reworking the data
+library( ggplot2 )  # for plotting the agreement matrix
 
 
 # ================================================================== #
-# Load the data ----
+# Load the estimated models ----
 
-# local
-#dat <- as.data.frame( 
-#  read_dta( here( "trust-culture-wrangling/PV PAR Interviews Full_CLEANED.dta" ) ) )
-
-
-# RC directory
-setwd( "/home/jyoung20/PAR-Trust/" )
-
-dat <- as.data.frame( 
-  read_dta( "PV PAR Interviews Full_CLEANED.dta" ) )
+!!!HERE: Need to save each as an .rds
+!!!need to export the fit for each one and save it as a pdf
 
 
-# ================================================================== #
-# trust variables ----
+# load the object and set the name
+trust.fit.2.diff <- load( here( "trust-culture-rodeo/trust.fit.2.diff.Rdata" ) )
+trust.fit.2.diff <- cctfit
 
-# the trust items are S3SS1_1-S3SS1_15
-trust.vars <- as.matrix( dat[,
-                             which( colnames( dat ) == ( "S3SS1_1" ) ):
-                               which( colnames( dat ) == ( "S3SS1_15" ) )
-] )
+# plot the posterior predictive model checks
+cctppc( trust.fit.2.diff )
 
-# add the ids
-trust.vars <- cbind( dat$id, trust.vars )
-
-# Function to replace the missing values
-NA.replace <- function( input.dat, pdist ){
-  set.seed( 12345 )
-  for( i in 1:nrow( input.dat ) ){
-    for( j in 1:ncol( input.dat ) ){
-      if( is.na( input.dat[i,j] == TRUE ) )
-        input.dat[i,j] <- pdist
-    }
-  }
-  return( input.dat )
-}
-
-# Show there are 67 missing values over the 15 items
-table( is.na( trust.vars[,-1] ) )
-
-# Run the function to replace the missing values
-trust.vars.na   <- NA.replace( as.matrix( trust.vars[,-1] ), rbinom( n = 1, size = 1, prob = 0.5 ) )
-
-# Add back the ids
-trust.vars.na <- cbind( dat$id, trust.vars.na )
-
-# Drop 2 cases that have repeated responses
-trust.vars.na <- trust.vars.na[ 
-  which( apply( trust.vars.na[,-1], 1, function( x ) length( unique( x ) ) ) != 1 ), ]
-trust.vars.na <- na.omit( trust.vars.na )
-
-# Show the scree plot
-trust.plot   <- cctscree( trust.vars.na[,-1], polych = FALSE ) 
+# export the image
+pdf( file = here( "trust-culture-figures/trust.fit.2.diff.diagnostics.pdf" ) )
+cctppc( trust.fit.2.diff )
+dev.off()
 
 
-# ================================================================== #
-# Estimate models ----
 
-# rename the data object
-trust.vars <- trust.vars.na
+!!!Need to figure out how to plot the pd and DIC info or how to report it
+Maybe you create a table for the appendix???
 
+
+
+
+
+
+
+
+!!!HERE with cleaning up
+
+these will be the model fit appendix
+these will also have the code for the .rds files to use
 
 # ----
-# Estimate the model for 1 cultural model
+# Estimated model for 1 cultural model
 # pD = 252.4 and DIC = 3304.4
-trust.fit.1 <- cctapply( 
-  data = trust.vars[,-1], 
-  clusters = 1, 
-  itemdiff = FALSE, 
-  runchecks = FALSE,
-  samples = 10000, 
-  chains = 3, 
-  burnin = 2000, 
-  seed = 12, 24, 36
-)
 
-# plot the results
-cctresults( trust.fit.1 )
-
-# print the results
-trust.fit.1
+# load the object and set the name
+trust.fit.1 <- load( here( "trust-culture-rodeo/trust.fit.1.Rdata" ) )
+trust.fit.1 <- cctfit
 
 # plot the posterior predictive model checks
 cctppc( trust.fit.1 )
-
-# export the results
-cctexport( trust.fit.1, filename = "trust.fit.1.Rdata")
 
 
 
@@ -218,7 +174,7 @@ cctexport( trust.fit.5, filename = "trust.fit.5.Rdata")
 
 # ----
 # Estimate the model for 6 cultural models
-# 
+# pD = 601.3 and DIC = 2517.2
 trust.fit.6 <- cctapply( 
   data = trust.vars[,-1], 
   clusters = 6, 
@@ -250,7 +206,9 @@ Need to rerun 3 and run the export function
 
 !!!HERE WITH ESTIMATEING THESE
 
+!!!AFter you are done here, you need to update the "trust-culture-heterogeneity-analysis.R" file
 
+so you can load the file and then run these to export them
 
 
 
@@ -323,6 +281,12 @@ trust.comp$group[trust.comp$group == 2] <- 1
 write.csv( trust.comp, "PAR-Trust-CCT-estimates.csv" )
 
 
-# ################################################################## #
-# END OF SYNTAX FILE.
-# ################################################################## #
+
+
+
+
+
+
+
+
+

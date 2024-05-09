@@ -15,3 +15,7 @@ trust-culture-rodeo/trust.fit.3.Rdata
 trust-culture-rodeo/trust.fit.4.Rdata
 trust-culture-rodeo/trust.fit.5.Rdata
 trust-culture-rodeo/trust.fit.6.Rdata
+.Rproj.user
+
+# misc stuff
+.DS_Store

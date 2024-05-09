@@ -144,6 +144,13 @@
         <FormatRange Italic="Yes">0,33</FormatRange>
       </Formatting>
     </Note>
+    <Note ID="43" FontSize="28.0" Position="814.0,724.0" Width="284.0">
+      <Appearance/>
+      <String>trust-culture-figures</String>
+      <Formatting>
+        <FormatRange Bold="Yes">0,21</FormatRange>
+      </Formatting>
+    </Note>
   </Notes>
   <BackgroundShapes>
     <Shape ID="15" Position="123.0,253.0" Width="534.1" Sticky="no" Height="381.0">
@@ -161,8 +168,13 @@
         <Border Weight="1"/>
       </Appearance>
     </Shape>
+    <Shape ID="42" Position="705.3,698.8" Width="534.1" Sticky="no" Height="381.0">
+      <Appearance>
+        <Border Weight="1"/>
+      </Appearance>
+    </Shape>
   </BackgroundShapes>
-  <AutoFit>3, 20, 35-37, 39-40</AutoFit>
+  <AutoFit>3, 20, 35-37, 39-40, 43</AutoFit>
   <NoteStyles>
     <Style Name="Bubble (Blue)" ID="54AF669F-D92D-405A-9381-2C49C36B6322" AffectFontStyle="No" AffectAlignment="No" AffectTextColor="No" AffectNoteBody="Yes" AffectFade="No">
       <BorderThickness>1</BorderThickness>

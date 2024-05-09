@@ -14,9 +14,6 @@
 # Clear the workspace
 rm( list = ls() )
 
-# For the RC, you need to 
-# add jags-4.3.0-gcc-12.1.0 to the "additional modules" argument
-
 # Load the libraries used
 library( parallel ) # for parallel processing
 library( CCTpack )  # for the cultural consensus models
@@ -28,22 +25,18 @@ library( dplyr )    # for working with the data
 # ================================================================== #
 # Load the data ----
 
-# local
-#dat <- as.data.frame( 
-#  read_dta( here( "trust-culture-wrangling/PV PAR Interviews Full_CLEANED.dta" ) ) )
-
-
-# RC directory
-setwd( "/home/jyoung20/PAR-Trust/" )
-
-dat <- as.data.frame( 
-  read_dta( "PV PAR Interviews Full_CLEANED.dta" ) )
-
+dat <- read.csv(
+  here( "trust-culture-wrangling/trust-culture-trust-items.csv" ),
+  as.is = TRUE,
+  header = TRUE,
+  stringsAsFactors = FALSE
+)
+  
 
 # ================================================================== #
 # trust variables ----
 
-# the trust items are S3SS1_1-S3SS1_15
+# get the trust variables
 trust.vars <- as.matrix( dat[,
                              which( colnames( dat ) == ( "S3SS1_1" ) ):
                                which( colnames( dat ) == ( "S3SS1_15" ) )
@@ -76,7 +69,6 @@ trust.vars.na <- cbind( dat$id, trust.vars.na )
 # Drop 2 cases that have repeated responses
 trust.vars.na <- trust.vars.na[ 
   which( apply( trust.vars.na[,-1], 1, function( x ) length( unique( x ) ) ) != 1 ), ]
-trust.vars.na <- na.omit( trust.vars.na )
 
 # Show the scree plot
 trust.plot   <- cctscree( trust.vars.na[,-1], polych = FALSE ) 
@@ -236,93 +228,12 @@ cctexport( trust.fit.6, filename = "trust.fit.6.Rdata")
 
 
 
+# ----
+# save the trust items to reference in the model fit analysis
 
+# clear all the items from the workspace
+rm( list = setdiff( ls(), "trust.vars" ) )
 
+# save the file
+saveRDS( trust.vars, paste( here(), "/trust-culture-rodeo/trust.fit.data", ".rds", sep = "" ) )  
 
-
-!!!!the export does not give you the posterior predictive checks
-you need to write some code to call these back up and estimate them
-from the data file
-
-Need to rerun 3 and run the export function
-
-
-
-!!!HERE WITH ESTIMATEING THESE
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-###CLEAN
-#
-#
-## Run the function to replace the missing values
-## replace 67 missing values: table( is.na( trust.vars[,-1] ) )
-#trust.vars2   <- NA.replace( as.matrix( trust.vars[,-1] ), round( runif( n = 1, min = 0, max = 1 ), 0 ) )
-#trust.vars <- cbind( dat$id, trust.vars2 )
-#
-# Exclude cases with repeated responses.
-# drop 72 cases that lack variation in there responses.
-# then drop 13 cases with missing data.
-
-#trust.vars2 <- trust.vars[ 
-#  which( apply( trust.vars[,-1], 1, function( x ) length( unique( x ) ) ) != 1 ), ]
-#trust.vars2 <- na.omit( trust.vars2 )
-#trust.vars  <- trust.vars2
-
-
-# ================================================================== #
-# Estimate models ----
-
-
-
-
-
-trust.fit.5 <- cctapply( 
-  data = trust.vars[,-1], 
-  clusters = 5, 
-  itemdiff = FALSE, 
-  runchecks = FALSE,
-  samples = 10000, 
-  chains = 3, 
-  burnin = 2000, 
-  seed = 12, 24, 36
-)
-cctresults( trust.fit.5 )
-trust.fit.5
-cctppc( trust.fit.5 )
-# pD = 573.6 and DIC = 2578.9
-
-
-# merge the competencies to the ids
-trust.comp <- cbind( trust.vars[,1], trust.fit.2$subj[,3], trust.fit.2$subj[,2] )
-colnames( trust.comp ) <- c( "id", "comp", "group" )
-trust.comp <- as.data.frame( trust.comp )
-
-# recode group 2 to be the 1 and the 1 to be a 0
-trust.comp$group[trust.comp$group == 1] <- 0
-trust.comp$group[trust.comp$group == 2] <- 1
-
-# write the file out
-write.csv( trust.comp, "PAR-Trust-CCT-estimates.csv" )
-
-
-# ################################################################## #
-# END OF SYNTAX FILE.
-# ################################################################## #
