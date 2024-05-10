@@ -102,157 +102,151 @@ modelDat <- left_join( knowledgeDat, modelDat )
 # ================================================================== #
 # Build a table of ttests and correlations ----
 
-statsTab <- matrix( NA, nrow = 9, ncol = 2 )
+# Relational health
 
-statsTab[1,1] <- t.test( rh ~ culture, data = modelDat )$statistic
-statsTab[2,1] <- cor.test( formula = ~ rh + knowledge, data = modelDat )$estimate
-statsTab[3,1] <- t.test( rh ~ interviewer, data = modelDat )$statistic
-statsTab[4,1] <- t.test( rh ~ randomized, data = modelDat )$statistic
-statsTab[5,1] <- cor.test( formula = ~ rh + age, data = modelDat )$estimate
-statsTab[6,1] <- t.test( rh ~ white, data = modelDat )$statistic
-statsTab[7,1] <- t.test( rh ~ black, data = modelDat )$statistic
-statsTab[8,1] <- t.test( rh ~ hispanic, data = modelDat )$statistic
-statsTab[9,1] <- cor.test( formula = ~ rh + timein_yrs, data = modelDat )$estimate
+rhTab <- matrix( NA, nrow = 10, ncol = 2 )
 
-statsTab[1,2] <- t.test( rh ~ culture, data = modelDat )$p.value
-statsTab[2,2] <- cor.test( formula = ~ rh + knowledge, data = modelDat )$p.value
-statsTab[3,2] <- t.test( rh ~ interviewer, data = modelDat )$p.value
-statsTab[4,2] <- t.test( rh ~ randomized, data = modelDat )$p.value
-statsTab[5,2] <- cor.test( formula = ~ rh + age, data = modelDat )$p.value
-statsTab[6,2] <- t.test( rh ~ white, data = modelDat )$p.value
-statsTab[7,2] <- t.test( rh ~ black, data = modelDat )$p.value
-statsTab[8,2] <- t.test( rh ~ hispanic, data = modelDat )$p.value
-statsTab[9,2] <- cor.test( formula = ~ rh + timein_yrs, data = modelDat )$p.value
+rhTab[1,1] <- t.test( rh ~ culture, data = modelDat )$statistic
+rhTab[2,1] <- cor.test( formula = ~ rh + knowledge, data = modelDat )$estimate
+rhTab[3,1] <- cor.test( formula = ~ rh + ps, data = modelDat )$estimate
+rhTab[4,1] <- cor.test( formula = ~ rh + age, data = modelDat )$estimate
+rhTab[5,1] <- t.test( rh ~ white, data = modelDat )$statistic
+rhTab[6,1] <- t.test( rh ~ black, data = modelDat )$statistic
+rhTab[7,1] <- t.test( rh ~ hispanic, data = modelDat )$statistic
+rhTab[8,1] <- cor.test( formula = ~ rh + timein_yrs, data = modelDat )$estimate
+rhTab[9,1] <- t.test( rh ~ interviewer, data = modelDat )$statistic
+rhTab[10,1] <- t.test( rh ~ randomized, data = modelDat )$statistic
 
-colnames( statsTab ) <- c( "statistic", "pvalue" )
-rownames( statsTab ) <- c( "Cultural Model", "Knowledge", "Interviewer", "Randomized", "Age", "White", "Black", "Hispanic", "Time In" )
-statsTab <- round( statsTab, 2 )
-statsTab
+rhTab[1,2] <- t.test( rh ~ culture, data = modelDat )$p.value
+rhTab[2,2] <- cor.test( formula = ~ rh + knowledge, data = modelDat )$p.value
+rhTab[3,2] <- cor.test( formula = ~ rh + ps, data = modelDat )$p.value
+rhTab[4,2] <- cor.test( formula = ~ rh + age, data = modelDat )$p.value
+rhTab[5,2] <- t.test( rh ~ white, data = modelDat )$p.value
+rhTab[6,2] <- t.test( rh ~ black, data = modelDat )$p.value
+rhTab[7,2] <- t.test( rh ~ hispanic, data = modelDat )$p.value
+rhTab[8,2] <- cor.test( formula = ~ rh + timein_yrs, data = modelDat )$p.value
+rhTab[9,2] <- t.test( rh ~ interviewer, data = modelDat )$p.value
+rhTab[10,2] <- t.test( rh ~ randomized, data = modelDat )$p.value
+
+colnames( rhTab ) <- c( "statistic", "pvalue" )
+rownames( rhTab ) <- c( "Cultural Model", "Knowledge", "Psychological Safety", "Age", "White", "Black", "Hispanic", "Time In", "Interviewer", "Randomized" )
+rhTab <- round( rhTab, 2 )
+rhTab
 
 
-then need the one for psychological safety
+# Psychological safety
+
+psTab <- matrix( NA, nrow = 10, ncol = 2 )
+
+psTab[1,1] <- t.test( ps ~ culture, data = modelDat )$statistic
+psTab[2,1] <- cor.test( formula = ~ ps + knowledge, data = modelDat )$estimate
+psTab[3,1] <- cor.test( formula = ~ ps + rh, data = modelDat )$estimate
+psTab[4,1] <- cor.test( formula = ~ ps + age, data = modelDat )$estimate
+psTab[5,1] <- t.test( ps ~ white, data = modelDat )$statistic
+psTab[6,1] <- t.test( ps ~ black, data = modelDat )$statistic
+psTab[7,1] <- t.test( ps ~ hispanic, data = modelDat )$statistic
+psTab[8,1] <- cor.test( formula = ~ ps + timein_yrs, data = modelDat )$estimate
+psTab[9,1] <- t.test( ps ~ interviewer, data = modelDat )$statistic
+psTab[10,1] <- t.test( ps ~ randomized, data = modelDat )$statistic
+
+psTab[1,2] <- t.test( ps ~ culture, data = modelDat )$p.value
+psTab[2,2] <- cor.test( formula = ~ ps + knowledge, data = modelDat )$p.value
+psTab[3,2] <- cor.test( formula = ~ ps + rh, data = modelDat )$p.value
+psTab[4,2] <- cor.test( formula = ~ ps + age, data = modelDat )$p.value
+psTab[5,2] <- t.test( ps ~ white, data = modelDat )$p.value
+psTab[6,2] <- t.test( ps ~ black, data = modelDat )$p.value
+psTab[7,2] <- t.test( ps ~ hispanic, data = modelDat )$p.value
+psTab[8,2] <- cor.test( formula = ~ ps + timein_yrs, data = modelDat )$p.value
+psTab[9,2] <- t.test( ps ~ interviewer, data = modelDat )$p.value
+psTab[10,2] <- t.test( ps ~ randomized, data = modelDat )$p.value
+
+colnames( psTab ) <- c( "statistic", "pvalue" )
+rownames( psTab ) <- c( "Cultural Model", "Knowledge", "Relational Health", "Age", "White", "Black", "Hispanic", "Time In", "Interviewer", "Randomized" )
+psTab <- round( psTab, 2 )
+psTab
 
 
-
-
+# Correlates with knowledge by cultural model assignment
 
 model1dat <- modelDat %>% 
   filter( culture == 1 )
 
-cultTab <- matrix( NA, nrow = 9, ncol = 2 )
+cM1Tab <- matrix( NA, nrow = 9, ncol = 2 )
 
-cultTab[1,1] <- cor.test( formula = ~ rh + knowledge, data = model1dat )$estimate
-cultTab[2,1] <- cor.test( formula = ~ ps + knowledge, data = model1dat )$estimate
-cultTab[3,1] <- t.test( knowledge ~ interviewer, data = model1dat )$statistic
-cultTab[4,1] <- t.test( knowledge ~ randomized, data = model1dat )$statistic
-cultTab[5,1] <- cor.test( formula = ~ knowledge + age, data = model1dat )$estimate
-cultTab[6,1] <- t.test( knowledge ~ white, data = model1dat )$statistic
-cultTab[7,1] <- t.test( knowledge ~ black, data = model1dat )$statistic
-cultTab[8,1] <- t.test( knowledge ~ hispanic, data = model1dat )$statistic
-cultTab[9,1] <- cor.test( formula = ~ knowledge + timein_yrs, data = model1dat )$estimate
+cM1Tab[1,1] <- cor.test( formula = ~ rh + knowledge, data = model1dat )$estimate
+cM1Tab[2,1] <- cor.test( formula = ~ ps + knowledge, data = model1dat )$estimate
+cM1Tab[3,1] <- cor.test( formula = ~ knowledge + age, data = model1dat )$estimate
+cM1Tab[4,1] <- t.test( knowledge ~ white, data = model1dat )$statistic
+cM1Tab[5,1] <- t.test( knowledge ~ black, data = model1dat )$statistic
+cM1Tab[6,1] <- t.test( knowledge ~ hispanic, data = model1dat )$statistic
+cM1Tab[7,1] <- cor.test( formula = ~ knowledge + timein_yrs, data = model1dat )$estimate
+cM1Tab[8,1] <- t.test( knowledge ~ interviewer, data = model1dat )$statistic
+cM1Tab[9,1] <- t.test( knowledge ~ randomized, data = model1dat )$statistic
 
-cultTab[1,2] <- cor.test( formula = ~ rh + knowledge, data = model1dat )$p.value
-cultTab[2,2] <- cor.test( formula = ~ ps + knowledge, data = model1dat )$p.value
-cultTab[3,2] <- t.test( knowledge ~ interviewer, data = model1dat )$p.value
-cultTab[4,2] <- t.test( knowledge ~ randomized, data = model1dat )$p.value
-cultTab[5,2] <- cor.test( formula = ~ knowledge + age, data = model1dat )$p.value
-cultTab[6,2] <- t.test( knowledge ~ white, data = model1dat )$p.value
-cultTab[7,2] <- t.test( knowledge ~ black, data = model1dat )$p.value
-cultTab[8,2] <- t.test( knowledge ~ hispanic, data = model1dat )$p.value
-cultTab[9,2] <- cor.test( formula = ~ knowledge + timein_yrs, data = model1dat )$p.value
+cM1Tab[1,2] <- cor.test( formula = ~ rh + knowledge, data = model1dat )$p.value
+cM1Tab[2,2] <- cor.test( formula = ~ ps + knowledge, data = model1dat )$p.value
+cM1Tab[3,2] <- cor.test( formula = ~ knowledge + age, data = model1dat )$p.value
+cM1Tab[4,2] <- t.test( knowledge ~ white, data = model1dat )$p.value
+cM1Tab[5,2] <- t.test( knowledge ~ black, data = model1dat )$p.value
+cM1Tab[6,2] <- t.test( knowledge ~ hispanic, data = model1dat )$p.value
+cM1Tab[7,2] <- cor.test( formula = ~ knowledge + timein_yrs, data = model1dat )$p.value
+cM1Tab[8,2] <- t.test( knowledge ~ interviewer, data = model1dat )$p.value
+cM1Tab[9,2] <- t.test( knowledge ~ randomized, data = model1dat )$p.value
+
+colnames( cM1Tab ) <- c( "statistic", "pvalue" )
+rownames( cM1Tab ) <- c( "Relational Health", "Psychological Safety", "Age", "White", "Black", "Hispanic", "Time In", "Interviewer", "Randomized" )
+cM1Tab <- round( cM1Tab, 2 )
+cM1Tab
 
 
-
-model1dat <- modelDat %>% 
+model2dat <- modelDat %>% 
   filter( culture == 2 )
 
-cultTab <- matrix( NA, nrow = 9, ncol = 2 )
+cM2Tab <- matrix( NA, nrow = 9, ncol = 2 )
 
-cultTab[1,1] <- cor.test( formula = ~ rh + knowledge, data = model1dat )$estimate
-cultTab[2,1] <- cor.test( formula = ~ ps + knowledge, data = model1dat )$estimate
-cultTab[3,1] <- t.test( knowledge ~ interviewer, data = model1dat )$statistic
-cultTab[4,1] <- t.test( knowledge ~ randomized, data = model1dat )$statistic
-cultTab[5,1] <- cor.test( formula = ~ knowledge + age, data = model1dat )$estimate
-cultTab[6,1] <- t.test( knowledge ~ white, data = model1dat )$statistic
-cultTab[7,1] <- t.test( knowledge ~ black, data = model1dat )$statistic
-cultTab[8,1] <- t.test( knowledge ~ hispanic, data = model1dat )$statistic
-cultTab[9,1] <- cor.test( formula = ~ knowledge + timein_yrs, data = model1dat )$estimate
+cM2Tab[1,1] <- cor.test( formula = ~ rh + knowledge, data = model2dat )$estimate
+cM2Tab[2,1] <- cor.test( formula = ~ ps + knowledge, data = model2dat )$estimate
+cM2Tab[3,1] <- cor.test( formula = ~ knowledge + age, data = model2dat )$estimate
+cM2Tab[4,1] <- t.test( knowledge ~ white, data = model2dat )$statistic
+cM2Tab[5,1] <- t.test( knowledge ~ black, data = model2dat )$statistic
+cM2Tab[6,1] <- t.test( knowledge ~ hispanic, data = model2dat )$statistic
+cM2Tab[7,1] <- cor.test( formula = ~ knowledge + timein_yrs, data = model2dat )$estimate
+cM2Tab[8,1] <- t.test( knowledge ~ interviewer, data = model2dat )$statistic
+cM2Tab[9,1] <- t.test( knowledge ~ randomized, data = model2dat )$statistic
 
-cultTab[1,2] <- cor.test( formula = ~ rh + knowledge, data = model1dat )$p.value
-cultTab[2,2] <- cor.test( formula = ~ ps + knowledge, data = model1dat )$p.value
-cultTab[3,2] <- t.test( knowledge ~ interviewer, data = model1dat )$p.value
-cultTab[4,2] <- t.test( knowledge ~ randomized, data = model1dat )$p.value
-cultTab[5,2] <- cor.test( formula = ~ knowledge + age, data = model1dat )$p.value
-cultTab[6,2] <- t.test( knowledge ~ white, data = model1dat )$p.value
-cultTab[7,2] <- t.test( knowledge ~ black, data = model1dat )$p.value
-cultTab[8,2] <- t.test( knowledge ~ hispanic, data = model1dat )$p.value
-cultTab[9,2] <- cor.test( formula = ~ knowledge + timein_yrs, data = model1dat )$p.value
+cM2Tab[1,2] <- cor.test( formula = ~ rh + knowledge, data = model2dat )$p.value
+cM2Tab[2,2] <- cor.test( formula = ~ ps + knowledge, data = model2dat )$p.value
+cM2Tab[3,2] <- cor.test( formula = ~ knowledge + age, data = model2dat )$p.value
+cM2Tab[4,2] <- t.test( knowledge ~ white, data = model2dat )$p.value
+cM2Tab[5,2] <- t.test( knowledge ~ black, data = model2dat )$p.value
+cM2Tab[6,2] <- t.test( knowledge ~ hispanic, data = model2dat )$p.value
+cM2Tab[7,2] <- cor.test( formula = ~ knowledge + timein_yrs, data = model2dat )$p.value
+cM2Tab[8,2] <- t.test( knowledge ~ interviewer, data = model2dat )$p.value
+cM2Tab[9,2] <- t.test( knowledge ~ randomized, data = model2dat )$p.value
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-!!!need to include the controls
-That controls file needs to not be on the repo
-
-# Create the objects to join ----
-dat.for.models <- data.frame(
-  id = dat$id,
-  trust.competency = trust.model$origCompetence,
-  relhlth = apply( rh.dat, 1, mean ),
-  safety =  apply( ps.dat, 1, mean ),
-  interviewer = dat$InterviewerType,
-  randomized = dat$Randomize,
-  age = dat$S4Q1,
-  white = dat$white,  
-  black = dat$black,
-  hispanic = dat$hispanic,
-  timein_yrs = dat$timein_yrs
-)
-
-
-
-
-
-
-
-
-
-
-
-
+colnames( cM2Tab ) <- c( "statistic", "pvalue" )
+rownames( cM2Tab ) <- c( "Relational Health", "Psychological Safety", "Age", "White", "Black", "Hispanic", "Time In", "Interviewer", "Randomized" )
+cM2Tab <- round( cM2Tab, 2 )
+cM2Tab
 
 
 # ================================================================== #
 # Build the objects for proportions ----
 
-# !!!This needs to be cleaned up
-
 # create table with the proportions
-a <- round( apply( trust.vars[,-1], 2, mean ), 2 )
-b <- trust.fit.2.diff$item[,2]
-c <- trust.fit.2.diff$item[,3]
-d <- trust.fit.2.diff$item[,4]
-e <- trust.fit.2.diff$item[,5]
+trust <- round( apply( trust.vars[,-1], 2, mean ), 2 )
+m1ans <- trust.fit.2.diff$item[,2]
+m2ans <- trust.fit.2.diff$item[,3]
+m1diff <- trust.fit.2.diff$item[,4]
+m2diff <- trust.fit.2.diff$item[,5]
 
 # print the table
-tab <- cbind( a, b, c, d, e )
+tab <- cbind( trust, m1ans, m2ans, m1diff, m2diff )
 
 # report the means and standard deviation
 round( apply( tab, 2, mean ), 2 ) 
 round( apply( tab, 2, sd ), 2 ) 
 
-
 # examine the membership
 round( table( trust.fit.2.diff$respmem ) / length( trust.fit.2.diff$respmem ), 2 ) 
-
 

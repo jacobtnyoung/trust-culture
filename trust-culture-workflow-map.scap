@@ -1,30 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ScappleDocument Version="1.2" ID="CA43173B-A6FE-4497-9707-015CC974BEE1">
   <Notes>
-    <Note ID="1" FontSize="28.0" Position="231.4,268.0" Width="338.6">
+    <Note ID="1" FontSize="28.0" Position="188.5,296.5" Width="338.6">
       <Appearance/>
       <String>trust-culture-wrangling</String>
       <Formatting>
         <FormatRange Bold="Yes">0,23</FormatRange>
       </Formatting>
     </Note>
-    <Note ID="3" FontSize="12.0" Position="424.5,396.0" Width="161.0">
+    <Note ID="3" FontSize="12.0" Position="411.7,414.0" Width="161.0">
       <Appearance>
         <Alignment>Left</Alignment>
         <Border Weight="1">0.7199764848 0.8974809647 0.6336728334</Border>
         <Fill>0.7837 0.9758 0.6903</Fill>
       </Appearance>
       <String>trust-culture-trust-items.csv</String>
-      <ConnectedNoteIDs>4</ConnectedNoteIDs>
+      <ConnectedNoteIDs>4, 52</ConnectedNoteIDs>
     </Note>
-    <Note ID="4" FontSize="12.0" Position="395.0,327.0" Width="223.0">
+    <Note ID="4" FontSize="12.0" Position="98.0,430.0" Width="233.4">
       <Appearance>
         <Alignment>Left</Alignment>
         <Border Weight="1">0.7221016288 0.8462901711 0.9162386656</Border>
         <Fill>0.786 0.9204 0.9961</Fill>
       </Appearance>
       <String>trust-culture-heterogeneity-source.R</String>
-      <ConnectedNoteIDs>3, 36</ConnectedNoteIDs>
+      <ConnectedNoteIDs>3, 44</ConnectedNoteIDs>
+      <PointsToNoteIDs>3, 44</PointsToNoteIDs>
     </Note>
     <Note ID="20" FontSize="12.0" Position="142.5,101.6" Width="63.0">
       <Appearance>
@@ -64,7 +65,7 @@
       <String>dashed line indicates dependency</String>
       <ConnectedNoteIDs>22</ConnectedNoteIDs>
     </Note>
-    <Note ID="24" FontSize="12.0" Position="260.5,389.0" Width="143.7">
+    <Note ID="24" FontSize="12.0" Position="422.2,352.2" Width="143.7">
       <Appearance>
         <Alignment>Left</Alignment>
       </Appearance>
@@ -82,33 +83,33 @@
         <FormatRange Italic="Yes">0,38</FormatRange>
       </Formatting>
     </Note>
-    <Note ID="35" FontSize="28.0" Position="837.1,262.9" Width="268.0">
+    <Note ID="35" FontSize="28.0" Position="1434.5,255.9" Width="268.0">
       <Appearance/>
       <String>trust-culture-rodeo</String>
       <Formatting>
         <FormatRange Bold="Yes">0,19</FormatRange>
       </Formatting>
     </Note>
-    <Note ID="36" FontSize="12.0" Position="800.1,325.4" Width="216.0">
+    <Note ID="36" FontSize="12.0" Position="1366.0,318.0" Width="247.0">
       <Appearance>
         <Alignment>Left</Alignment>
         <Border Weight="1">0.7221016288 0.8462901711 0.9162386656</Border>
         <Fill>0.786 0.9204 0.9961</Fill>
       </Appearance>
-      <String>trust-culture-heterogeneity-analysis.R</String>
-      <ConnectedNoteIDs>4, 37</ConnectedNoteIDs>
+      <String>trust-culture-heterogeneity-estimation.R</String>
+      <ConnectedNoteIDs>37</ConnectedNoteIDs>
       <PointsToNoteIDs>37</PointsToNoteIDs>
     </Note>
-    <Note ID="37" FontSize="12.0" Position="859.3,452.2" Width="98.0">
+    <Note ID="37" FontSize="12.0" Position="1456.7,445.2" Width="98.0">
       <Appearance>
         <Alignment>Left</Alignment>
         <Border Weight="1">0.7199764848 0.8974809647 0.6336728334</Border>
         <Fill>0.7837 0.9758 0.6903</Fill>
       </Appearance>
       <String>trust.fit.#.Rdata</String>
-      <ConnectedNoteIDs>36, 39</ConnectedNoteIDs>
+      <ConnectedNoteIDs>36, 39, 51-52</ConnectedNoteIDs>
     </Note>
-    <Note ID="38" FontSize="12.0" Position="707.4,444.9" Width="143.7">
+    <Note ID="38" FontSize="12.0" Position="1304.8,437.9" Width="143.7">
       <Appearance>
         <Alignment>Left</Alignment>
       </Appearance>
@@ -117,25 +118,26 @@
         <FormatRange Italic="Yes">0,41</FormatRange>
       </Formatting>
     </Note>
-    <Note ID="39" FontSize="12.0" Position="1218.1,325.2" Width="209.0">
+    <Note ID="39" FontSize="12.0" Position="1816.0,318.0" Width="241.6">
       <Appearance>
         <Alignment>Left</Alignment>
         <Border Weight="1">0.7221016288 0.8462901711 0.9162386656</Border>
         <Fill>0.786 0.9204 0.9961</Fill>
       </Appearance>
-      <String>trust-culture-heterogeneity-figures.R</String>
-      <ConnectedNoteIDs>37</ConnectedNoteIDs>
+      <String>trust-culture-heterogeneity-analysis.R</String>
+      <ConnectedNoteIDs>37, 53</ConnectedNoteIDs>
+      <PointsToNoteIDs>53</PointsToNoteIDs>
     </Note>
-    <Note ID="40" FontSize="12.0" Position="1443.0,324.0" Width="144.0">
+    <Note ID="40" FontSize="12.0" Position="2074.0,317.0" Width="200.0">
       <Appearance>
         <Alignment>Left</Alignment>
       </Appearance>
-      <String>R code to create figures</String>
+      <String>R code to run analysis and create figures</String>
       <Formatting>
-        <FormatRange Italic="Yes">0,24</FormatRange>
+        <FormatRange Italic="Yes">0,41</FormatRange>
       </Formatting>
     </Note>
-    <Note ID="41" FontSize="12.0" Position="1020.9,317.9" Width="143.7">
+    <Note ID="41" FontSize="12.0" Position="1618.3,310.9" Width="143.7">
       <Appearance>
         <Alignment>Left</Alignment>
       </Appearance>
@@ -144,16 +146,127 @@
         <FormatRange Italic="Yes">0,33</FormatRange>
       </Formatting>
     </Note>
-    <Note ID="43" FontSize="28.0" Position="814.0,724.0" Width="284.0">
+    <Note ID="43" FontSize="28.0" Position="1411.4,717.0" Width="284.0">
       <Appearance/>
       <String>trust-culture-figures</String>
       <Formatting>
         <FormatRange Bold="Yes">0,21</FormatRange>
       </Formatting>
     </Note>
+    <Note ID="44" FontSize="12.0" Position="396.7,474.3" Width="194.0">
+      <Appearance>
+        <Alignment>Left</Alignment>
+        <Border Weight="1">0.7199764848 0.8974809647 0.6336728334</Border>
+        <Fill>0.7837 0.9758 0.6903</Fill>
+      </Appearance>
+      <String>trust-culture-rhps-cntrls-items.csv</String>
+      <ConnectedNoteIDs>4, 46</ConnectedNoteIDs>
+    </Note>
+    <Note ID="45" FontSize="12.0" Position="419.0,507.3" Width="143.7">
+      <Appearance>
+        <Alignment>Left</Alignment>
+      </Appearance>
+      <String>Raw items for relational health, psychological safety, and controls from PAR survey</String>
+      <Formatting>
+        <FormatRange Italic="Yes">0,83</FormatRange>
+      </Formatting>
+    </Note>
+    <Note ID="46" FontSize="12.0" Position="679.5,474.7" Width="174.0">
+      <Appearance>
+        <Alignment>Left</Alignment>
+        <Border Weight="1">0.7221016288 0.8462901711 0.9162386656</Border>
+        <Fill>0.786 0.9204 0.9961</Fill>
+      </Appearance>
+      <String>trust-culture-rhps-cntrl-prep.R</String>
+      <ConnectedNoteIDs>44, 47</ConnectedNoteIDs>
+      <PointsToNoteIDs>47</PointsToNoteIDs>
+    </Note>
+    <Note ID="47" FontSize="12.0" Position="1311.5,574.4" Width="171.0">
+      <Appearance>
+        <Alignment>Left</Alignment>
+        <Border Weight="1">0.7199764848 0.8974809647 0.6336728334</Border>
+        <Fill>0.7837 0.9758 0.6903</Fill>
+      </Appearance>
+      <String>trust.rhps.cntrls.vars.data.rds</String>
+      <ConnectedNoteIDs>46, 52</ConnectedNoteIDs>
+    </Note>
+    <Note ID="48" FontSize="12.0" Position="1491.1,542.9" Width="143.7">
+      <Appearance>
+        <Alignment>Left</Alignment>
+      </Appearance>
+      <String>.rds file with cleaned relational health, psychological safety, and controls for analysis</String>
+      <Formatting>
+        <FormatRange Italic="Yes">0,89</FormatRange>
+      </Formatting>
+    </Note>
+    <Note ID="51" FontSize="12.0" Position="1908.6,529.4" Width="263.6">
+      <Appearance>
+        <Alignment>Left</Alignment>
+        <Border Weight="1">0.7221016288 0.8462901711 0.9162386656</Border>
+        <Fill>0.786 0.9204 0.9961</Fill>
+      </Appearance>
+      <String>trust-culture-heterogeneity-appendix.R</String>
+      <ConnectedNoteIDs>37, 54</ConnectedNoteIDs>
+      <PointsToNoteIDs>54</PointsToNoteIDs>
+    </Note>
+    <Note ID="52" FontSize="12.0" Position="1680.9,530.8" Width="219.0">
+      <Appearance>
+        <Alignment>Left</Alignment>
+        <Border Weight="1">0.7221016288 0.8462901711 0.9162386656</Border>
+        <Fill>0.786 0.9204 0.9961</Fill>
+      </Appearance>
+      <String>trust-culture-heterogeneity-model-fit.R</String>
+      <ConnectedNoteIDs>3, 37, 47, 56</ConnectedNoteIDs>
+      <PointsToNoteIDs>56</PointsToNoteIDs>
+    </Note>
+    <Note ID="53" FontSize="12.0" Position="1353.5,804.9" Width="75.3">
+      <Appearance>
+        <Alignment>Left</Alignment>
+        <Border Weight="1">0.7199764848 0.8974809647 0.6336728334</Border>
+        <Fill>0.7837 0.9758 0.6903</Fill>
+      </Appearance>
+      <String>various files</String>
+      <ConnectedNoteIDs>39</ConnectedNoteIDs>
+    </Note>
+    <Note ID="54" FontSize="12.0" Position="1997.9,835.7" Width="75.3">
+      <Appearance>
+        <Alignment>Left</Alignment>
+        <Border Weight="1">0.7199764848 0.8974809647 0.6336728334</Border>
+        <Fill>0.7837 0.9758 0.6903</Fill>
+      </Appearance>
+      <String>trust.fit.#.diff.diagnostics.pdf</String>
+      <ConnectedNoteIDs>51</ConnectedNoteIDs>
+    </Note>
+    <Note ID="55" FontSize="12.0" Position="1963.8,901.4" Width="161.0">
+      <Appearance>
+        <Alignment>Left</Alignment>
+      </Appearance>
+      <String>Diagnostic plots for models</String>
+      <Formatting>
+        <FormatRange Italic="Yes">0,27</FormatRange>
+      </Formatting>
+    </Note>
+    <Note ID="56" FontSize="12.0" Position="1784.3,834.3" Width="75.3">
+      <Appearance>
+        <Alignment>Left</Alignment>
+        <Border Weight="1">0.7199764848 0.8974809647 0.6336728334</Border>
+        <Fill>0.7837 0.9758 0.6903</Fill>
+      </Appearance>
+      <String>trust.knowledge.pdf</String>
+      <ConnectedNoteIDs>52</ConnectedNoteIDs>
+    </Note>
+    <Note ID="57" FontSize="12.0" Position="1801.1,894.7" Width="64.0">
+      <Appearance>
+        <Alignment>Left</Alignment>
+      </Appearance>
+      <String>Figure # </String>
+      <Formatting>
+        <FormatRange Italic="Yes">0,9</FormatRange>
+      </Formatting>
+    </Note>
   </Notes>
   <BackgroundShapes>
-    <Shape ID="15" Position="123.0,253.0" Width="534.1" Sticky="no" Height="381.0">
+    <Shape ID="15" Position="80.0,282.0" Width="872.2" Sticky="no" Height="381.0">
       <Appearance>
         <Border Weight="1"/>
       </Appearance>
@@ -163,18 +276,18 @@
         <Border Weight="1"/>
       </Appearance>
     </Shape>
-    <Shape ID="34" Position="699.0,253.0" Width="932.8" Sticky="no" Height="378.0">
+    <Shape ID="34" Position="1296.4,246.0" Width="932.8" Sticky="no" Height="378.0">
       <Appearance>
         <Border Weight="1"/>
       </Appearance>
     </Shape>
-    <Shape ID="42" Position="705.3,698.8" Width="534.1" Sticky="no" Height="381.0">
+    <Shape ID="42" Position="1299.0,695.0" Width="926.0" Sticky="no" Height="375.8">
       <Appearance>
         <Border Weight="1"/>
       </Appearance>
     </Shape>
   </BackgroundShapes>
-  <AutoFit>3, 20, 35-37, 39-40, 43</AutoFit>
+  <AutoFit>3, 20, 35, 37, 43-44, 46-47, 52, 55, 57</AutoFit>
   <NoteStyles>
     <Style Name="Bubble (Blue)" ID="54AF669F-D92D-405A-9381-2C49C36B6322" AffectFontStyle="No" AffectAlignment="No" AffectTextColor="No" AffectNoteBody="Yes" AffectFade="No">
       <BorderThickness>1</BorderThickness>
