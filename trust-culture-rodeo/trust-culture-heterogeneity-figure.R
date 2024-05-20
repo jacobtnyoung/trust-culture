@@ -1,6 +1,19 @@
 ###NEED TO UPDATE INFO HERE
 
 
+
+Work in the dat from the trash-plot and then work the plots together
+
+
+
+!!!HERE
+
+
+
+
+
+
+
 # Clear the workspace
 rm( list = ls() )
 
