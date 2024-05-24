@@ -7,7 +7,7 @@
 # Clear the workspace
 rm( list = ls() )
 
-
+library( here )      # for the directory
 library( dplyr )     # for working with the data
 library( reshape2 )  # for reworking the data
 library( ggplot2 )   # for plotting
@@ -200,6 +200,15 @@ grid.arrange(
 )
 
 
+# export the image
+pdf( file = here( "trust-culture-figures/hypothetical.agreement.pdf" ) )
+
+grid.arrange( 
+  plotList[[1]],plotList[[2]], plotList[[3]], plotList[[4]],
+  nrow = 2, ncol = 2
+)
+
+dev.off()
 
 
 
@@ -285,13 +294,24 @@ grid.arrange(
 
 
 
+grid.arrange( 
+  noConPlot, ConPlot, hetConPlot, hetConNoPlot, 
+  nrow = 2, ncol = 2
+)
 
 
+# export the image
+pdf( file = here( "trust-culture-figures/hypothetical.knowledge.pdf" ) )
 
 grid.arrange( 
   noConPlot, ConPlot, hetConPlot, hetConNoPlot, 
   nrow = 2, ncol = 2
 )
+
+dev.off()
+
+
+
 
 
 grid.arrange( 

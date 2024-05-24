@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ScappleDocument Version="1.2" ID="CA43173B-A6FE-4497-9707-015CC974BEE1">
   <Notes>
-    <Note ID="1" FontSize="28.0" Position="188.5,296.5" Width="338.6">
+    <Note ID="1" FontSize="28.0" Position="357.6,295.3" Width="338.6">
       <Appearance/>
       <String>trust-culture-wrangling</String>
       <Formatting>
@@ -83,14 +83,14 @@
         <FormatRange Italic="Yes">0,38</FormatRange>
       </Formatting>
     </Note>
-    <Note ID="35" FontSize="28.0" Position="1434.5,255.9" Width="268.0">
+    <Note ID="35" FontSize="28.0" Position="1604.1,295.1" Width="268.0">
       <Appearance/>
       <String>trust-culture-rodeo</String>
       <Formatting>
         <FormatRange Bold="Yes">0,19</FormatRange>
       </Formatting>
     </Note>
-    <Note ID="36" FontSize="12.0" Position="1366.0,318.0" Width="247.0">
+    <Note ID="36" FontSize="12.0" Position="1419.9,367.3" Width="247.0">
       <Appearance>
         <Alignment>Left</Alignment>
         <Border Weight="1">0.7221016288 0.8462901711 0.9162386656</Border>
@@ -100,16 +100,16 @@
       <ConnectedNoteIDs>37</ConnectedNoteIDs>
       <PointsToNoteIDs>37</PointsToNoteIDs>
     </Note>
-    <Note ID="37" FontSize="12.0" Position="1456.7,445.2" Width="98.0">
+    <Note ID="37" FontSize="12.0" Position="1510.6,494.5" Width="98.0">
       <Appearance>
         <Alignment>Left</Alignment>
         <Border Weight="1">0.7199764848 0.8974809647 0.6336728334</Border>
         <Fill>0.7837 0.9758 0.6903</Fill>
       </Appearance>
       <String>trust.fit.#.Rdata</String>
-      <ConnectedNoteIDs>36, 39, 51-52</ConnectedNoteIDs>
+      <ConnectedNoteIDs>36, 39, 51-52, 65</ConnectedNoteIDs>
     </Note>
-    <Note ID="38" FontSize="12.0" Position="1304.8,437.9" Width="143.7">
+    <Note ID="38" FontSize="12.0" Position="1358.7,487.2" Width="143.7">
       <Appearance>
         <Alignment>Left</Alignment>
       </Appearance>
@@ -118,17 +118,16 @@
         <FormatRange Italic="Yes">0,41</FormatRange>
       </Formatting>
     </Note>
-    <Note ID="39" FontSize="12.0" Position="1816.0,318.0" Width="241.6">
+    <Note ID="39" FontSize="12.0" Position="1869.9,367.3" Width="241.6">
       <Appearance>
         <Alignment>Left</Alignment>
         <Border Weight="1">0.7221016288 0.8462901711 0.9162386656</Border>
         <Fill>0.786 0.9204 0.9961</Fill>
       </Appearance>
       <String>trust-culture-heterogeneity-analysis.R</String>
-      <ConnectedNoteIDs>37, 53</ConnectedNoteIDs>
-      <PointsToNoteIDs>53</PointsToNoteIDs>
+      <ConnectedNoteIDs>37</ConnectedNoteIDs>
     </Note>
-    <Note ID="40" FontSize="12.0" Position="2074.0,317.0" Width="200.0">
+    <Note ID="40" FontSize="12.0" Position="2127.9,366.3" Width="200.0">
       <Appearance>
         <Alignment>Left</Alignment>
       </Appearance>
@@ -137,7 +136,7 @@
         <FormatRange Italic="Yes">0,41</FormatRange>
       </Formatting>
     </Note>
-    <Note ID="41" FontSize="12.0" Position="1618.3,310.9" Width="143.7">
+    <Note ID="41" FontSize="12.0" Position="1674.7,360.2" Width="143.7">
       <Appearance>
         <Alignment>Left</Alignment>
       </Appearance>
@@ -146,8 +145,10 @@
         <FormatRange Italic="Yes">0,33</FormatRange>
       </Formatting>
     </Note>
-    <Note ID="43" FontSize="28.0" Position="1411.4,717.0" Width="284.0">
-      <Appearance/>
+    <Note ID="43" FontSize="28.0" Position="1075.5,789.8" Width="332.2">
+      <Appearance>
+        <Alignment>Center</Alignment>
+      </Appearance>
       <String>trust-culture-figures</String>
       <Formatting>
         <FormatRange Bold="Yes">0,21</FormatRange>
@@ -181,7 +182,7 @@
       <ConnectedNoteIDs>44, 47</ConnectedNoteIDs>
       <PointsToNoteIDs>47</PointsToNoteIDs>
     </Note>
-    <Note ID="47" FontSize="12.0" Position="1311.5,574.4" Width="171.0">
+    <Note ID="47" FontSize="12.0" Position="1265.2,591.1" Width="171.0">
       <Appearance>
         <Alignment>Left</Alignment>
         <Border Weight="1">0.7199764848 0.8974809647 0.6336728334</Border>
@@ -190,7 +191,7 @@
       <String>trust.rhps.cntrls.vars.data.rds</String>
       <ConnectedNoteIDs>46, 52</ConnectedNoteIDs>
     </Note>
-    <Note ID="48" FontSize="12.0" Position="1491.1,542.9" Width="143.7">
+    <Note ID="48" FontSize="12.0" Position="1262.9,626.5" Width="188.0">
       <Appearance>
         <Alignment>Left</Alignment>
       </Appearance>
@@ -199,74 +200,139 @@
         <FormatRange Italic="Yes">0,89</FormatRange>
       </Formatting>
     </Note>
-    <Note ID="51" FontSize="12.0" Position="1908.6,529.4" Width="263.6">
+    <Note ID="51" FontSize="12.0" Position="1938.9,576.3" Width="232.7">
       <Appearance>
         <Alignment>Left</Alignment>
         <Border Weight="1">0.7221016288 0.8462901711 0.9162386656</Border>
         <Fill>0.786 0.9204 0.9961</Fill>
       </Appearance>
       <String>trust-culture-heterogeneity-appendix.R</String>
-      <ConnectedNoteIDs>37, 54</ConnectedNoteIDs>
-      <PointsToNoteIDs>54</PointsToNoteIDs>
+      <ConnectedNoteIDs>37</ConnectedNoteIDs>
+      <PointsToNoteIDs/>
     </Note>
-    <Note ID="52" FontSize="12.0" Position="1680.9,530.8" Width="219.0">
+    <Note ID="52" FontSize="12.0" Position="1680.9,579.2" Width="219.0">
       <Appearance>
         <Alignment>Left</Alignment>
         <Border Weight="1">0.7221016288 0.8462901711 0.9162386656</Border>
         <Fill>0.786 0.9204 0.9961</Fill>
       </Appearance>
       <String>trust-culture-heterogeneity-model-fit.R</String>
-      <ConnectedNoteIDs>3, 37, 47, 56</ConnectedNoteIDs>
-      <PointsToNoteIDs>56</PointsToNoteIDs>
+      <ConnectedNoteIDs>3, 37, 47, 53, 58-59</ConnectedNoteIDs>
+      <PointsToNoteIDs>53, 58-59</PointsToNoteIDs>
     </Note>
-    <Note ID="53" FontSize="12.0" Position="1353.5,804.9" Width="75.3">
+    <Note ID="53" FontSize="12.0" Position="1284.3,893.4" Width="137.2">
       <Appearance>
-        <Alignment>Left</Alignment>
+        <Alignment>Center</Alignment>
         <Border Weight="1">0.7199764848 0.8974809647 0.6336728334</Border>
         <Fill>0.7837 0.9758 0.6903</Fill>
       </Appearance>
-      <String>various files</String>
-      <ConnectedNoteIDs>39</ConnectedNoteIDs>
-    </Note>
-    <Note ID="54" FontSize="12.0" Position="1997.9,835.7" Width="75.3">
-      <Appearance>
-        <Alignment>Left</Alignment>
-        <Border Weight="1">0.7199764848 0.8974809647 0.6336728334</Border>
-        <Fill>0.7837 0.9758 0.6903</Fill>
-      </Appearance>
-      <String>trust.fit.#.diff.diagnostics.pdf</String>
-      <ConnectedNoteIDs>51</ConnectedNoteIDs>
-    </Note>
-    <Note ID="55" FontSize="12.0" Position="1963.8,901.4" Width="161.0">
-      <Appearance>
-        <Alignment>Left</Alignment>
-      </Appearance>
-      <String>Diagnostic plots for models</String>
-      <Formatting>
-        <FormatRange Italic="Yes">0,27</FormatRange>
-      </Formatting>
-    </Note>
-    <Note ID="56" FontSize="12.0" Position="1784.3,834.3" Width="75.3">
-      <Appearance>
-        <Alignment>Left</Alignment>
-        <Border Weight="1">0.7199764848 0.8974809647 0.6336728334</Border>
-        <Fill>0.7837 0.9758 0.6903</Fill>
-      </Appearance>
-      <String>trust.knowledge.pdf</String>
+      <String>trust.agreement.pdf</String>
       <ConnectedNoteIDs>52</ConnectedNoteIDs>
     </Note>
-    <Note ID="57" FontSize="12.0" Position="1801.1,894.7" Width="64.0">
+    <Note ID="55" FontSize="12.0" Position="1529.1,992.5" Width="61.0">
       <Appearance>
         <Alignment>Left</Alignment>
       </Appearance>
-      <String>Figure # </String>
+      <String>Figure 3</String>
+      <Formatting>
+        <FormatRange Italic="Yes">0,8</FormatRange>
+      </Formatting>
+    </Note>
+    <Note ID="57" FontSize="12.0" Position="1143.3,972.5" Width="64.0">
+      <Appearance>
+        <Alignment>Left</Alignment>
+      </Appearance>
+      <String>Figure 1 </String>
       <Formatting>
         <FormatRange Italic="Yes">0,9</FormatRange>
       </Formatting>
     </Note>
+    <Note ID="58" FontSize="12.0" Position="1272.6,959.9" Width="165.0">
+      <Appearance>
+        <Alignment>Center</Alignment>
+        <Border Weight="1">0.7199764848 0.8974809647 0.6336728334</Border>
+        <Fill>0.7837 0.9758 0.6903</Fill>
+      </Appearance>
+      <String>trust.fit.2.diff.diagnostics.pdf</String>
+      <ConnectedNoteIDs>52</ConnectedNoteIDs>
+    </Note>
+    <Note ID="59" FontSize="12.0" Position="1290.1,926.4" Width="129.0">
+      <Appearance>
+        <Alignment>Center</Alignment>
+        <Border Weight="1">0.7199764848 0.8974809647 0.6336728334</Border>
+        <Fill>0.7837 0.9758 0.6903</Fill>
+      </Appearance>
+      <String>trust.scree.apriori.pdf</String>
+      <ConnectedNoteIDs>52</ConnectedNoteIDs>
+    </Note>
+    <Note ID="60" FontSize="12.0" Position="1508.0,939.0" Width="121.0">
+      <Appearance>
+        <Alignment>Center</Alignment>
+        <Border Weight="1">0.7199764848 0.8974809647 0.6336728334</Border>
+        <Fill>0.7837 0.9758 0.6903</Fill>
+      </Appearance>
+      <String>trust.knowledge.pdf</String>
+      <ConnectedNoteIDs>65</ConnectedNoteIDs>
+    </Note>
+    <Note ID="61" FontSize="12.0" Position="1088.9,902.0" Width="161.0">
+      <Appearance>
+        <Alignment>Center</Alignment>
+        <Border Weight="1">0.7199764848 0.8974809647 0.6336728334</Border>
+        <Fill>0.7837 0.9758 0.6903</Fill>
+      </Appearance>
+      <String>hypothetical.agreement.pdf</String>
+      <ConnectedNoteIDs>66</ConnectedNoteIDs>
+    </Note>
+    <Note ID="62" FontSize="12.0" Position="1093.1,936.5" Width="161.0">
+      <Appearance>
+        <Alignment>Center</Alignment>
+        <Border Weight="1">0.7199764848 0.8974809647 0.6336728334</Border>
+        <Fill>0.7837 0.9758 0.6903</Fill>
+      </Appearance>
+      <String>hypothetical.knowledge.pdf</String>
+      <ConnectedNoteIDs>66</ConnectedNoteIDs>
+    </Note>
+    <Note ID="63" FontSize="12.0" Position="1321.7,994.9" Width="64.0">
+      <Appearance>
+        <Alignment>Left</Alignment>
+      </Appearance>
+      <String>Figure 2 </String>
+      <Formatting>
+        <FormatRange Italic="Yes">0,9</FormatRange>
+      </Formatting>
+    </Note>
+    <Note ID="65" FontSize="12.0" Position="2193.9,577.3" Width="216.0">
+      <Appearance>
+        <Alignment>Left</Alignment>
+        <Border Weight="1">0.7221016288 0.8462901711 0.9162386656</Border>
+        <Fill>0.786 0.9204 0.9961</Fill>
+      </Appearance>
+      <String>trust-culture-heterogeneity-analysis.R</String>
+      <ConnectedNoteIDs>37, 60</ConnectedNoteIDs>
+      <PointsToNoteIDs>60</PointsToNoteIDs>
+    </Note>
+    <Note ID="66" FontSize="12.0" Position="1087.3,364.2" Width="209.0">
+      <Appearance>
+        <Alignment>Left</Alignment>
+        <Border Weight="1">0.7221016288 0.8462901711 0.9162386656</Border>
+        <Fill>0.786 0.9204 0.9961</Fill>
+      </Appearance>
+      <String>trust-culture-heterogeneity-figures.R</String>
+      <ConnectedNoteIDs>61-62</ConnectedNoteIDs>
+      <PointsToNoteIDs>61-62</PointsToNoteIDs>
+    </Note>
+    <Note ID="67" FontSize="12.0" Position="1212.4,393.6" Width="143.7">
+      <Appearance>
+        <Alignment>Left</Alignment>
+      </Appearance>
+      <String>Create hypothetical figures</String>
+      <Formatting>
+        <FormatRange Italic="Yes">0,27</FormatRange>
+      </Formatting>
+    </Note>
   </Notes>
   <BackgroundShapes>
-    <Shape ID="15" Position="80.0,282.0" Width="872.2" Sticky="no" Height="381.0">
+    <Shape ID="15" Position="80.0,282.0" Width="918.1" Sticky="no" Height="381.0">
       <Appearance>
         <Border Weight="1"/>
       </Appearance>
@@ -276,18 +342,18 @@
         <Border Weight="1"/>
       </Appearance>
     </Shape>
-    <Shape ID="34" Position="1296.4,246.0" Width="932.8" Sticky="no" Height="378.0">
+    <Shape ID="34" Position="1064.3,280.2" Width="1366.8" Sticky="no" Height="424.0">
       <Appearance>
         <Border Weight="1"/>
       </Appearance>
     </Shape>
-    <Shape ID="42" Position="1299.0,695.0" Width="926.0" Sticky="no" Height="375.8">
+    <Shape ID="42" Position="1056.3,763.2" Width="1095.7" Sticky="no" Height="375.8">
       <Appearance>
         <Border Weight="1"/>
       </Appearance>
     </Shape>
   </BackgroundShapes>
-  <AutoFit>3, 20, 35, 37, 43-44, 46-47, 52, 55, 57</AutoFit>
+  <AutoFit>3, 20, 35, 37, 44, 46-47, 52, 55, 57-63, 65-66</AutoFit>
   <NoteStyles>
     <Style Name="Bubble (Blue)" ID="54AF669F-D92D-405A-9381-2C49C36B6322" AffectFontStyle="No" AffectAlignment="No" AffectTextColor="No" AffectNoteBody="Yes" AffectFade="No">
       <BorderThickness>1</BorderThickness>

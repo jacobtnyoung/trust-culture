@@ -13,11 +13,13 @@
 rm( list = ls() )
 
 # Load the libraries used
-library( CCTpack )  # for the cultural consensus models
-library( here )     # for calling local directory
-library( dplyr )    # for working with the data
-library( reshape2 ) # for reworking the data
-library( ggplot2 )  # for plotting the agreement matrix
+library( CCTpack )   # for the cultural consensus models
+library( here )      # for calling local directory
+library( dplyr )     # for working with the data
+library( reshape2 )  # for reworking the data
+library( ggplot2 )   # for plotting the agreement matrix
+library( gridExtra ) # for plotting grids
+library( grid )      # for plotting titles on the grid
 
 
 # ================================================================== #
