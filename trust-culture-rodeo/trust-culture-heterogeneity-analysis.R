@@ -36,7 +36,7 @@ trust.fit.2.diff <- cctfit
 
 
 # ================================================================== #
-# Build Figure # of cultural knowledge ----
+# Build Figure 4 of cultural knowledge ----
 
 # build the object to plot
 knowledgeDat <- data.frame(
@@ -45,36 +45,45 @@ knowledgeDat <- data.frame(
   knowledge    = trust.fit.2.diff$subj[,3]
 )
 
+# recode the cultural model assignment to make group 2 group 1
+# and group 1 group 2 (this is for ease of interpretation)
+
+cultureRecoded <- knowledgeDat$culture   
+cultureRecoded[ knowledgeDat$culture == 2 ] <- 0
+cultureRecoded[ knowledgeDat$culture == 1 ] <- 2
+cultureRecoded[ knowledgeDat$culture == 2 ] <- 1
+knowledgeDat$cultureRecoded <- cultureRecoded
+
 # Calculate mean for each group
 culturalMeansSds <- knowledgeDat %>%
-  group_by( culture ) %>%
+  group_by( cultureRecoded ) %>%
   summarise( mean_knowledge = round( mean( knowledge ), 2 ),
              sd_knowledge = round( sd( knowledge ), 2 ) )
 
 # Add a new variable that ranks responses within each group
 knowledgeDat <- knowledgeDat %>%
-  arrange( culture, knowledge ) %>%
+  arrange( cultureRecoded, knowledge ) %>%
   mutate( rank_knowledge = row_number() )
 
 # Create the scatterplot
 knowledgePlot <- ggplot( knowledgeDat,
         aes( x = rank_knowledge, 
              y = knowledge, 
-             color = as.factor( culture ) ) ) +
+             color = as.factor( cultureRecoded ) ) ) +
   geom_point() + 
-  labs( title = "Scatterplot of Responses by Group",
+  labs( title = "Scatterplot of Respondent Knowledge by Relationship Model",
         x = "Respondents",
-        y = "Knowledge/Expertise") +
+        y = "Knowledge") +
   geom_hline( data = culturalMeansSds, 
-              aes( yintercept = mean_knowledge, colour = as.factor( culture ) ) ) +
+              aes( yintercept = mean_knowledge, colour = as.factor( cultureRecoded ) ) ) +
     theme_minimal() +
   theme( legend.position = "top",
          axis.text.x = element_blank() ) +
-  guides( color = guide_legend( title = "Group" ) )
+  guides( color = guide_legend( title = "Relationship Model: " ) )
 print( knowledgePlot )
 
 # export the image
-pdf( file = here( "trust-culture-figures/trust.knowledge.pdf" ) )
+pdf( file = here( "trust-culture-figures/figure-4-trust-knowledge.pdf" ) )
 print( knowledgePlot )
 dev.off()
 
@@ -106,7 +115,7 @@ modelDat <- left_join( knowledgeDat, modelDat )
 
 rhTab <- matrix( NA, nrow = 10, ncol = 2 )
 
-rhTab[1,1] <- t.test( rh ~ culture, data = modelDat )$statistic
+rhTab[1,1] <- t.test( rh ~ cultureRecoded, data = modelDat )$statistic
 rhTab[2,1] <- cor.test( formula = ~ rh + knowledge, data = modelDat )$estimate
 rhTab[3,1] <- cor.test( formula = ~ rh + ps, data = modelDat )$estimate
 rhTab[4,1] <- cor.test( formula = ~ rh + age, data = modelDat )$estimate
@@ -117,7 +126,7 @@ rhTab[8,1] <- cor.test( formula = ~ rh + timein_yrs, data = modelDat )$estimate
 rhTab[9,1] <- t.test( rh ~ interviewer, data = modelDat )$statistic
 rhTab[10,1] <- t.test( rh ~ randomized, data = modelDat )$statistic
 
-rhTab[1,2] <- t.test( rh ~ culture, data = modelDat )$p.value
+rhTab[1,2] <- t.test( rh ~ cultureRecoded, data = modelDat )$p.value
 rhTab[2,2] <- cor.test( formula = ~ rh + knowledge, data = modelDat )$p.value
 rhTab[3,2] <- cor.test( formula = ~ rh + ps, data = modelDat )$p.value
 rhTab[4,2] <- cor.test( formula = ~ rh + age, data = modelDat )$p.value
@@ -129,7 +138,7 @@ rhTab[9,2] <- t.test( rh ~ interviewer, data = modelDat )$p.value
 rhTab[10,2] <- t.test( rh ~ randomized, data = modelDat )$p.value
 
 colnames( rhTab ) <- c( "statistic", "pvalue" )
-rownames( rhTab ) <- c( "Cultural Model", "Knowledge", "Psychological Safety", "Age", "White", "Black", "Hispanic", "Time In", "Interviewer", "Randomized" )
+rownames( rhTab ) <- c( "Relationship Model", "Knowledge", "Psychological Safety", "Age", "White", "Black", "Hispanic", "Time In", "Interviewer", "Randomized" )
 rhTab <- round( rhTab, 2 )
 rhTab
 
@@ -138,7 +147,7 @@ rhTab
 
 psTab <- matrix( NA, nrow = 10, ncol = 2 )
 
-psTab[1,1] <- t.test( ps ~ culture, data = modelDat )$statistic
+psTab[1,1] <- t.test( ps ~ cultureRecoded, data = modelDat )$statistic
 psTab[2,1] <- cor.test( formula = ~ ps + knowledge, data = modelDat )$estimate
 psTab[3,1] <- cor.test( formula = ~ ps + rh, data = modelDat )$estimate
 psTab[4,1] <- cor.test( formula = ~ ps + age, data = modelDat )$estimate
@@ -149,7 +158,7 @@ psTab[8,1] <- cor.test( formula = ~ ps + timein_yrs, data = modelDat )$estimate
 psTab[9,1] <- t.test( ps ~ interviewer, data = modelDat )$statistic
 psTab[10,1] <- t.test( ps ~ randomized, data = modelDat )$statistic
 
-psTab[1,2] <- t.test( ps ~ culture, data = modelDat )$p.value
+psTab[1,2] <- t.test( ps ~ cultureRecoded, data = modelDat )$p.value
 psTab[2,2] <- cor.test( formula = ~ ps + knowledge, data = modelDat )$p.value
 psTab[3,2] <- cor.test( formula = ~ ps + rh, data = modelDat )$p.value
 psTab[4,2] <- cor.test( formula = ~ ps + age, data = modelDat )$p.value
@@ -161,15 +170,15 @@ psTab[9,2] <- t.test( ps ~ interviewer, data = modelDat )$p.value
 psTab[10,2] <- t.test( ps ~ randomized, data = modelDat )$p.value
 
 colnames( psTab ) <- c( "statistic", "pvalue" )
-rownames( psTab ) <- c( "Cultural Model", "Knowledge", "Relational Health", "Age", "White", "Black", "Hispanic", "Time In", "Interviewer", "Randomized" )
+rownames( psTab ) <- c( "Relationship Model", "Knowledge", "Relational Health", "Age", "White", "Black", "Hispanic", "Time In", "Interviewer", "Randomized" )
 psTab <- round( psTab, 2 )
 psTab
 
 
-# Correlates with knowledge by cultural model assignment
+# Correlates with knowledge by relationship model
 
 model1dat <- modelDat %>% 
-  filter( culture == 1 )
+  filter( cultureRecoded == 1 )
 
 cM1Tab <- matrix( NA, nrow = 9, ncol = 2 )
 
@@ -200,7 +209,7 @@ cM1Tab
 
 
 model2dat <- modelDat %>% 
-  filter( culture == 2 )
+  filter( cultureRecoded == 2 )
 
 cM2Tab <- matrix( NA, nrow = 9, ncol = 2 )
 
@@ -235,10 +244,10 @@ cM2Tab
 
 # create table with the proportions
 trust <- round( apply( trust.vars[,-1], 2, mean ), 2 )
-m1ans <- trust.fit.2.diff$item[,2]
-m2ans <- trust.fit.2.diff$item[,3]
-m1diff <- trust.fit.2.diff$item[,4]
-m2diff <- trust.fit.2.diff$item[,5]
+m1ans <- trust.fit.2.diff$item[,3]
+m2ans <- trust.fit.2.diff$item[,2]
+m1diff <- trust.fit.2.diff$item[,5]
+m2diff <- trust.fit.2.diff$item[,4]
 
 # print the table
 tab <- cbind( trust, m1ans, m2ans, m1diff, m2diff )
@@ -249,90 +258,4 @@ round( apply( tab, 2, sd ), 2 )
 
 # examine the membership
 round( table( trust.fit.2.diff$respmem ) / length( trust.fit.2.diff$respmem ), 2 ) 
-
-
-
-
-
-
-
-
-
-
-
-
-# ================================================================== #
-# agreement matrix for memberships ----
-
-trustDat <- as.data.frame( trust.vars )
-id <- trustDat$V1
-trustDat$assignmentID <- id
-
-modelDat2 <- left_join( modelDat, trustDat )
-
-
-model1dat2 <- modelDat2 %>% 
-  filter( culture == 2 ) %>% 
-  select( S3SS1_1: S3SS1_15 ) %>% 
-  na.omit()
-
-
-trust.vars <- model1dat2
-
-DiscountedAgreementMatrix <-
-  function( response.mat, n.responses ){
-    discounted.matrix= matrix( 0, nrow( response.mat ),nrow( response.mat ) )
-    for( i in 1:nrow( discounted.matrix ) ){
-      for( j in 1:ncol( discounted.matrix ) ){
-        discounted.matrix[i,j] <- mean( response.mat[i,] == response.mat[j,], na.rm = TRUE ) # Create the average number of items i and j agree on.
-      }             
-    }
-    discounted.matrix <- ( discounted.matrix*n.responses -1 ) / (n.responses-1 ) # Correct the average agreement for guessing.
-    diag( discounted.matrix ) <- 0 # set the diagonal to zero.
-    discounted.matrix[is.finite(discounted.matrix) == FALSE] <- 0 # adjust Inf values to zero (if any).
-    return( discounted.matrix ) 
-  }
-
-trust.agreement <- DiscountedAgreementMatrix( trust.vars, 2 )
-mean( trust.agreement )
-
-
-dat.for.plot <- function( cormat ){
-  dd <- as.dist( ( 1-cormat )/2 ) # Use correlation between variables as distance.
-  hc <- hclust( dd )
-  cormat <-cormat[hc$order, hc$order]
-  cormat[lower.tri( cormat )] <- NA # set the lower part of the triangle as missing (redundant information).
-  cor.dat <- melt( cormat, na.rm = TRUE ) # create the dataframe.
-  return( cor.dat )
-}
-
-# assign the agreement matrix to the object to plot.
-trust.agreement.dat <- dat.for.plot( trust.agreement )
-
-# Plot for trust.
-ggheatmap.T <- ggplot( data = trust.agreement.dat, aes( Var2, Var1, fill = value ) ) +
-  geom_tile( color = "white" ) +
-  scale_fill_gradient2( low = "blue", high = "red", mid = "white", 
-                        midpoint = 0, limit = c( -1,1 ), space = "Lab", 
-                        name="Agreement" ) +
-  theme_minimal() + 
-  coord_fixed() + 
-  theme(
-    axis.title.x = element_blank(), axis.title.y = element_blank(),
-    axis.text.x=element_blank(), axis.text.y=element_blank(),
-    panel.grid.major = element_blank(),
-    panel.border = element_blank(),
-    panel.background = element_blank(),
-    axis.ticks = element_blank(),
-    legend.justification = c(1, 0),
-    legend.position = c(0.6, 0.7),
-    legend.direction = "horizontal") +
-  guides(fill = guide_colorbar( barwidth = 7, barheight = 1,
-                                title.position = "top", title.hjust = 0.5) ) +
-  ggtitle( "Plot of Agreement for Trust Items" )
-print( ggheatmap.T )
-
-
-
-
 

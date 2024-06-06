@@ -91,7 +91,7 @@ print( ggheatmap.T )
 
 
 # export the image
-pdf( file = here( "trust-culture-figures/trust.agreement.pdf" ) )
+pdf( file = here( "trust-culture-figures/figure-3-trust-agreement.pdf" ) )
 print( ggheatmap.T )
 dev.off()
 
@@ -103,7 +103,7 @@ dev.off()
 trust.plot   <- cctscree( trust.vars[,-1], polych = FALSE ) 
 
 # export the image
-pdf( file = here( "trust-culture-figures/trust.scree.apriori.pdf" ) )
+pdf( file = here( "trust-culture-figures/figure-3-trust-scree-apriori.pdf" ) )
 trust.plot   <- cctscree( trust.vars[,-1], polych = FALSE ) 
 dev.off()
 
@@ -119,7 +119,7 @@ trust.fit.2.diff <- cctfit
 cctppc( trust.fit.2.diff )
 
 # export the image
-pdf( file = here( "trust-culture-figures/trust.fit.2.diff.diagnostics.pdf" ) )
+pdf( file = here( "trust-culture-figures/figure-3-trust.fit.2.diff-diagnostics.pdf" ) )
 cctppc( trust.fit.2.diff )
 dev.off()
 
