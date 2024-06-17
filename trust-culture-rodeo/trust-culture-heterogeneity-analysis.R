@@ -18,6 +18,7 @@ library( here )     # for calling local directory
 library( dplyr )    # for working with the data
 library( reshape2 ) # for reworking the data
 library( ggplot2 )  # for plotting
+library( psych )    # for reliability analysis
 
 
 # ================================================================== #
@@ -86,6 +87,41 @@ print( knowledgePlot )
 pdf( file = here( "trust-culture-figures/figure-4-trust-knowledge.pdf" ) )
 print( knowledgePlot )
 dev.off()
+
+
+# ================================================================== #
+# Build the descriptives for the PAR table ----
+
+trust.vars.temp <- readRDS( file = here( "trust-culture-rodeo/trust.fit.data.rds" ) )
+rhps.vars.temp  <- readRDS( file = here( "trust-culture-rodeo/trust.rhps.cntrls.vars.data.rds" ) )
+
+# trust variables
+round( apply( trust.vars.temp[,-1], 2, mean ), 2 ) 
+round( apply( trust.vars.temp[,-1], 2, sd ), 2 ) 
+
+# check alpha for trust vars
+alpha( trust.vars.temp[,-1] )
+
+# other measures
+round( mean( rhps.vars.temp$rh ), 2 )
+round( mean( rhps.vars.temp$ps ), 2 )
+round( mean( rhps.vars.temp$age ), 2 )
+round( mean( rhps.vars.temp$white ), 2 )
+round( mean( rhps.vars.temp$black ), 2 )
+round( mean( rhps.vars.temp$hispanic ), 2 )
+round( mean( rhps.vars.temp$timein_yrs ), 2 )
+round( mean( rhps.vars.temp$interviewer ), 2 )
+round( mean( rhps.vars.temp$randomized ), 2 )
+
+round( sd( rhps.vars.temp$rh ), 2 )
+round( sd( rhps.vars.temp$ps ), 2 )
+round( sd( rhps.vars.temp$age ), 2 )
+round( sd( rhps.vars.temp$white ), 2 )
+round( sd( rhps.vars.temp$black ), 2 )
+round( sd( rhps.vars.temp$hispanic ), 2 )
+round( sd( rhps.vars.temp$timein_yrs ), 2 )
+round( sd( rhps.vars.temp$interviewer ), 2 )
+round( sd( rhps.vars.temp$randomized ), 2 )
 
 
 # ================================================================== #
@@ -258,4 +294,3 @@ round( apply( tab, 2, sd ), 2 )
 
 # examine the membership
 round( table( trust.fit.2.diff$respmem ) / length( trust.fit.2.diff$respmem ), 2 ) 
-

@@ -248,6 +248,10 @@ for( i in 1: length( datToPlot2 ) ) {
   
 }
 
+grid.arrange( 
+  plotList2[[1]],plotList2[[2]], plotList2[[3]], plotList2[[4]],
+  nrow = 2, ncol = 2
+)
 
 # export the image
 pdf( file = here( "trust-culture-figures/figure-2-hypothetical-knowledge.pdf" ) )
