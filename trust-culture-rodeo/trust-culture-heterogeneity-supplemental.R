@@ -1,9 +1,6 @@
 # ================================================================== #
-# PAPER TITLE
-# ================================================================== #
-
 # This syntax file assess model fit for models estimated
-# in the trust-culture-heterogeneity-analysis.R file
+# in the trust-culture-heterogeneity-estimation.R file
 
 # ================================================================== #
 # Setup ----

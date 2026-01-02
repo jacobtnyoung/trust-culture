@@ -1,7 +1,4 @@
-# ################################################################## #
-# PAPER TITLE
-# ################################################################## #
-
+# ================================================================== #
 # This file prepares the relational health and psychological
 # safety variables for analysis with the knowledge scores
 
@@ -117,4 +114,4 @@ model.dat <- data.frame(
 # ================================================================== #
 # save the file for calling in the analysis ----
 
-saveRDS( model.dat, paste( here(), "/trust-culture-rodeo/trust.rhps.cntrls.vars.data", ".rds", sep = "" ) )  
+saveRDS( model.dat, paste( here(), "/trust-culture-rodeo/trust.data", ".rds", sep = "" ) )  

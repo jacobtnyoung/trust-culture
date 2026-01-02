@@ -1,7 +1,4 @@
 # ================================================================== #
-# PAPER TITLE
-# ================================================================== #
-
 # This syntax file assess model fit for models estimated
 # in the trust-culture-heterogeneity-estimation.R file
 
@@ -90,22 +87,11 @@ ggheatmap.T <- ggplot( data = trust.agreement.dat, aes( Var2, Var1, fill = value
 print( ggheatmap.T )
 
 
-# export the image
-pdf( file = here( "trust-culture-figures/figure-3-trust-agreement.pdf" ) )
-print( ggheatmap.T )
-dev.off()
-
-
 # ================================================================== #
 # examine the scree plot and export it ----
 
 # show the scree plot
 trust.plot   <- cctscree( trust.vars[,-1], polych = FALSE ) 
-
-# export the image
-pdf( file = here( "trust-culture-figures/figure-3-trust-scree-apriori.pdf" ) )
-trust.plot   <- cctscree( trust.vars[,-1], polych = FALSE ) 
-dev.off()
 
 
 # ================================================================== #
@@ -117,9 +103,3 @@ trust.fit.2.diff <- cctfit
 
 # plot the posterior predictive model checks
 cctppc( trust.fit.2.diff )
-
-# export the image
-pdf( file = here( "trust-culture-figures/figure-3-trust.fit.2.diff-diagnostics.pdf" ) )
-cctppc( trust.fit.2.diff )
-dev.off()
-

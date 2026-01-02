@@ -1,8 +1,5 @@
 # ================================================================== #
-# PAPER TITLE
-# ================================================================== #
-
-# This syntax file analyses the results from the 
+# This syntax file analyzes the results from the 
 # trust-culture-heterogeneity-estimation.R file
 
 
@@ -93,7 +90,7 @@ dev.off()
 # Build the descriptives for the PAR table ----
 
 trust.vars.temp <- readRDS( file = here( "trust-culture-rodeo/trust.fit.data.rds" ) )
-rhps.vars.temp  <- readRDS( file = here( "trust-culture-rodeo/trust.rhps.cntrls.vars.data.rds" ) )
+rhps.vars.temp  <- readRDS( file = here( "trust-culture-rodeo/trust.data.rds" ) )
 
 # trust variables
 round( apply( trust.vars.temp[,-1], 2, mean ), 2 ) 
@@ -128,7 +125,7 @@ round( sd( rhps.vars.temp$randomized ), 2 )
 # Cultural model assignment and knowledge as a predictor ----
 
 # get the relational health and psychological safety variables
-rhpsDat <- readRDS( file = here( "trust-culture-rodeo/trust.rhps.cntrls.vars.data.rds" ) )
+rhpsDat <- readRDS( file = here( "trust-culture-rodeo/trust.data.rds" ) )
 
 # merge the cultural model data with the relational health and psychological safety data
 

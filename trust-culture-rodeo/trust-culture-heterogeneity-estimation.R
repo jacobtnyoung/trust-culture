@@ -1,6 +1,4 @@
 # ================================================================== #
-# PAPER TITLE
-# ================================================================== #
 
 # This syntax file cleans the items from the trust instrument 
 # of the PAR survey.
