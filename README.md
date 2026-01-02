@@ -12,7 +12,7 @@
 
 ### Folders
 
-There are three folders:
+There are two main folders:
 
   * *trust-culture-rodeo*-this folder contains the cleaned data and the files to render the analyses.
   
@@ -38,10 +38,5 @@ graph LR
     D --> F[trust-culture-heterogeneity-analysis.R]
     D --> E[trust-culture-heterogeneity-fit.R]
     D --> G[trust-culture-heterogeneity-supplemental.R]
-
-    %% Output generation
-    C --> H[Figures]
-    D --> I[Table 1 & Appendix 1]
-    E --> J[Figure 3]
 
 ```    
